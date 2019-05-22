@@ -1,0 +1,49 @@
+<br />
+<div class="columns has-text-centered">
+  <div class="column is-four-fifths">
+    <h3 class="title ">Lista de Empleados</h3>
+  </div>
+  <div class="column">
+    <a routerLink="/registrar-empleado" class="button is-primary">Registrar empleado</a>
+  </div>
+</div>
+<br />
+
+<div class="columns is-centered">
+  <div class="column is-two-thirds">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>CI</th>
+          <th>Nombre completo</th>
+          <th>Cargo</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>12121212</td>
+          <td>Ismael Alejandro Delgado Huanca</td>
+          <td>Charlatan jefe administrativo de nada</td>
+          <td>elismael999@delgado.com</td>
+          <td>
+            <a routerLink="/editar-empleado" class="button is-info">
+              <i class="fas fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <button class="button is-danger" (click)="abrirModal()">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-eliminar-empleado [estaActivoModal]="estaActivoModal"></app-eliminar-empleado>
