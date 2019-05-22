@@ -4,7 +4,7 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">¿Esta seguro que desea eliminar al empleado?</p>
-      <button class="delete" aria-label="close"></button>
+      <button class="delete" aria-label="close" (click)="toggleModal()"></button>
     </header>
     <footer class="modal-card-foot">
       <button class="button is-danger is-inverted" (click)="delete()">Eliminar</button>

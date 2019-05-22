@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ver-empleados',
@@ -14,7 +14,7 @@ export class VerEmpleadosComponent implements OnInit {
     this.estaActivoModal = false;
   }
 
-  abrirModal() {
+  modificarModal() {
     this.estaActivoModal = !this.estaActivoModal;
   }
 }

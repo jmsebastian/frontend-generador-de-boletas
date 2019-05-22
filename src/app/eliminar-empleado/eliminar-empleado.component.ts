@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChange, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-eliminar-empleado',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input, SimpleChange, OnChanges } from '@angular/core
 export class EliminarEmpleadoComponent implements OnInit, OnChanges {
 
   @Input() estaActivoModal: boolean;
+  @Output() cerrarModal: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -21,5 +22,6 @@ export class EliminarEmpleadoComponent implements OnInit, OnChanges {
 
   toggleModal() {
     this.estaActivoModal = !this.estaActivoModal;
+    this.cerrarModal.emit(null);
   }
 }
