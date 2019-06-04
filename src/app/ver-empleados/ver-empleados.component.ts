@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { HttpClient , HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-ver-empleados',
@@ -8,10 +9,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class VerEmpleadosComponent implements OnInit {
 
   estaActivoModal: boolean;
-  constructor() { }
+  empleados:any = []
+
+  constructor( private http:HttpClient) { 
+    
+    this.http.get('http://localhost:3000/api/empleado/obtener-todos').subscribe((data:any) => {
+      console.log(data);
+      this.empleados = data.content;
+    })
+  }
 
   ngOnInit() {
     this.estaActivoModal = false;
+  
   }
 
   modificarModal() {

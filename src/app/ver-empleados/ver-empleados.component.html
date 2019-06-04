@@ -24,12 +24,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td>12121212</td>
-          <td>Ismael Alejandro Delgado Huanca</td>
-          <td>Charlatan jefe administrativo de nada</td>
-          <td>elismael999@delgado.com</td>
+        <tr *ngFor="let empleado of empleados, let i = index">
+          <th>{{i + 1}}</th>
+          <td>{{empleado.ci}}</td>
+          <td>{{empleado.nombre}}</td>
+          <td>{{empleado.cargo}}</td>
+          <td>{{empleado.email}}</td>
+
           <td>
             <a routerLink="/editar-empleado" class="button is-info">
               <i class="fas fa-edit"></i>

@@ -10,6 +10,8 @@ import { FormEmpleadoComponent } from './form-empleado/form-empleado.component';
 import { VerEmpleadosComponent } from './ver-empleados/ver-empleados.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EliminarEmpleadoComponent } from './eliminar-empleado/eliminar-empleado.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { EliminarEmpleadoComponent } from './eliminar-empleado/eliminar-empleado
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
