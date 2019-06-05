@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient , HttpHeaders } from '@angular/common/http';
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  error:boolean = false;
+  fecha:any;
+  constructor(private http:HttpClient) {}
 
   ngOnInit() {
+  }
+
+  generarBoletas(){
+    console.log("boletas generadas");
+    console.log(this.fecha);
+    // this.http.get('http://localhost:3000/api/generador-boletas/enviar-boletas').subscribe((data:any) => {
+    //   console.log(data);
+    // });
   }
 
 }
