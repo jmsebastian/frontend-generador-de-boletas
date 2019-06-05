@@ -9,7 +9,7 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  mostrar:boolean = false;
   error:boolean = false;
   fecha:any;
   constructor(private http:HttpClient) {}
@@ -18,11 +18,14 @@ export class DashboardComponent implements OnInit {
   }
 
   generarBoletas(){
-    console.log("boletas generadas");
-    console.log(this.fecha);
-    // this.http.get('http://localhost:3000/api/generador-boletas/enviar-boletas').subscribe((data:any) => {
-    //   console.log(data);
-    // });
+    this.http.get('http://localhost:3000/api/generador-boletas/enviar-boletas').subscribe((data:any) => {
+      this.mostrar = true;
+      if(data.length == 0){
+        this.error = true;
+      }else{
+        this.error = false;
+      }
+    });
   }
 
 }

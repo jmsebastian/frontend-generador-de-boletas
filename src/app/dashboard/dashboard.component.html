@@ -11,30 +11,27 @@
     </div>
     
 </div>
-<div class="columns is-mobile">
-    <div class="column is-3 is-offset-5">
-        <input [(ngModel)]="fecha" type="date">
-    </div>
-</div>
-<br><br><br>
-<div *ngIf="error" class="columns is-mobile"> 
-  <div class="column is-8 is-offset-2">
-      <article class="message is-warning">
-          <div class="message-body ">
-            Lamentablemente hoy no es dia de paga de nadie
-          </div>
-      </article>
-  </div>
-</div>
 
-<div *ngIf="error == false" class="columns is-mobile"> 
+<br><br><br>
+<div *ngIf="mostrar == true">
+  <div *ngIf="error" class="columns is-mobile"> 
     <div class="column is-8 is-offset-2">
-        <article class="message is-success">
+        <article class="message is-warning">
             <div class="message-body ">
-              Las boletas de pago fueron enviadas a los empleados correctamente!
+              Lamentablemente hoy no es dia de paga de nadie
             </div>
         </article>
     </div>
   </div>
 
+  <div *ngIf="error == false" class="columns is-mobile"> 
+      <div class="column is-8 is-offset-2">
+          <article class="message is-success">
+              <div class="message-body ">
+                Las boletas de pago fueron enviadas a los empleados correctamente!
+              </div>
+          </article>
+      </div>
+    </div>
+</div>
 
