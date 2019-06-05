@@ -9,49 +9,137 @@
     <div class="field">
       <label class="label">Nombre(s)</label>
       <div class="control">
-        <input class="input" type="text" placeholder="">
+        <input class="input" [(ngModel)]="nombre" type="text" placeholder="">
       </div>
     </div>
 
     <div class="field">
       <label class="label">Apellidos</label>
       <div class="control">
-        <input class="input" type="text" placeholder="">
+        <input class="input" [(ngModel)]="apellido" type="text" placeholder="">
       </div>
     </div>
 
     <div class="field">
       <label class="label">Carnet de Identidad</label>
       <div class="control">
-        <input class="input" type="number" placeholder="">
+        <input class="input" [(ngModel)]="empleado.ci" type="number" placeholder="">
       </div>
     </div>
 
     <div class="field">
       <label class="label">Cargo</label>
       <div class="control">
-        <input class="input" type="number" placeholder="">
+        <input class="input" [(ngModel)]="empleado.cargo" type="text" placeholder="">
       </div>
     </div>
-
 
     <div class="field">
       <label class="label">Correo</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-danger" type="email" placeholder="Email input" value="example@domain.com">
+        <input class="input" [(ngModel)]="empleado.email" type="email" placeholder="ejemplo@dominio.com">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
-        <span class="icon is-small is-right">
-          <i class="fas fa-exclamation-triangle"></i>
-        </span>
       </div>
-      <p class="help is-danger">This email is invalid</p>
+    </div>
+
+    <div class="field">
+      <label class="label">Tipo</label>
+      <div class="control">
+        <div class="select">
+          <select [(ngModel)]="empleado.tipo">
+            <option value="tiempo completo">Tiempo completo</option>
+            <option value="tiempo parcial">Tiempo parcial</option>
+            <option value="por comision">Por comision</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="empleado.tipo == 'tiempo completo'">
+      <div class="field">
+        <label class="label">Salario mensual</label>
+        <div class="control">
+          <input class="input" [(ngModel)]="empleado.salarioMensual" type="number" placeholder="">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Fecha de inicio de trabajo</label>
+        <div class="control">
+          <input class="input" [(ngModel)]="empleado.fechaInicioTrabajo" type="date" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="empleado.tipo == 'tiempo parcial'">
+      <div class="field">
+        <label class="label">Salario por hora</label>
+        <div class="control">
+          <input class="input" [(ngModel)]="empleado.salarioPorHora" type="number" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="empleado.tipo == 'por comision'">
+      <div class="field">
+        <label class="label">Porcentaje de comision</label>
+        <div class="control">
+          <input class="input" [(ngModel)]="empleado.porcentajeComision" type="number" placeholder="">
+          <p>Ingrese un numero entre 0 y 1 Ejm: 0.8</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Sueldo base</label>
+        <div class="control">
+          <input class="input" [(ngModel)]="empleado.sueldoBase" type="number" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Sindicato</label>
+      <div class="control">
+        <div class="select">
+          <select [(ngModel)]="empleado.sindicato">
+            <option value="">Ninguno</option>
+            <option value="RRHH">Recursos humanos</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Metodo para pagar al empleado</label>
+      <div class="control">
+        <div class="select">
+          <select [(ngModel)]="empleado.metodoDePago">
+            <option value="Cheque">Cheque</option>
+            <option value="Deposito">Deposito</option>
+            <option value="Efectivo">Efectivo</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Meteodo de envio de notificacion de pago</label>
+      <div class="control">
+        <div class="select">
+          <select [(ngModel)]="empleado.metodoDeEnvio">
+            <option value="Email">Email</option>
+            <option value="Facebook">Facebook</option>
+            <option value="WhatsApp">WhatsApp</option>
+          </select>
+        </div>
+      </div>
     </div>
 
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link">Registrar</button>
+        <button class="button is-link" (click)="registrar()">Registrar</button>
       </div>
       <div class="control">
         <a routerLink="/empleados" class="button is-danger">Cancelar</a>
