@@ -6,12 +6,14 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './registrar-empleado.component.html',
   styleUrls: ['./registrar-empleado.component.css']
 })
+
 export class RegistrarEmpleadoComponent implements OnInit {
 
   empleado: any = {};
   nombre = '';
   apellido = '';
   dropdownTipo = false;
+
   constructor(private http: HttpClient) {
   }
 
@@ -37,8 +39,9 @@ export class RegistrarEmpleadoComponent implements OnInit {
     if (this.nombre || this.apellido) {
       this.empleado.nombre = this.nombre + ' ' + this.apellido;
     }
-    this.http.post('http://localhost:3000/api/empleado/', this.empleado).subscribe(response => {
-      if (response) {
+    this.http.post('http://localhost:3000/api/empleado/', this.empleado).subscribe((response: any) => {
+      console.log(response);
+      if (response.success === true) {
         alert('Empleado registrado exitosamente!');
       } else {
         alert('Error al insertar al empleado!');
