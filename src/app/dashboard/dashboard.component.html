@@ -1,3 +1,37 @@
-<p>
-  dashboard works!
-</p>
+<br><br>
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+    <h1 class="title is-2">¡Genera las boletas de tus empleados!</h1>
+  </div>
+</div>
+<br><br>
+<div class="columns is-mobile">
+    <div class="column is-3 is-offset-4">
+        <a (click)="generarBoletas()" class="button is-large is-fullwidth is-primary">Generar Boletas</a>
+    </div>
+    
+</div>
+
+<br><br><br>
+<div *ngIf="mostrar == true">
+  <div *ngIf="error" class="columns is-mobile"> 
+    <div class="column is-8 is-offset-2">
+        <article class="message is-warning">
+            <div class="message-body ">
+              Lamentablemente hoy no es dia de paga de nadie
+            </div>
+        </article>
+    </div>
+  </div>
+
+  <div *ngIf="error == false" class="columns is-mobile"> 
+      <div class="column is-8 is-offset-2">
+          <article class="message is-success">
+              <div class="message-body ">
+                Las boletas de pago fueron enviadas a los empleados correctamente!
+              </div>
+          </article>
+      </div>
+    </div>
+</div>
+
