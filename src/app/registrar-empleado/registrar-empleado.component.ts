@@ -40,7 +40,6 @@ export class RegistrarEmpleadoComponent implements OnInit {
       this.empleado.nombre = this.nombre + ' ' + this.apellido;
     }
     this.http.post('http://localhost:3000/api/empleado/', this.empleado).subscribe((response: any) => {
-      console.log(response);
       if (response.success === true) {
         alert('Empleado registrado exitosamente!');
       } else {
